@@ -1,20 +1,14 @@
 import React, { FC, useState, KeyboardEvent } from "react";
 import "./App.css";
-
-const List: FC<{ list: string[] }> = ({ list }) => {
-  return (
-    <ul>
-      {list.map((item) => (
-        <li>{item}</li>
-      ))}
-    </ul>
-  );
-};
-
-const App: FC = () => {
+//Монолит всё в одном компоненте App
+const AppMonolit: FC = () => {
   const [count, setCount] = useState(0);
   const [list, setList] = useState<string[]>([]);
   const [value, setValue] = useState("");
+
+  const handleClick = () => {
+    setCount((v) => v + 1);
+  };
 
   const handleAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (!value) return;
@@ -30,9 +24,12 @@ const App: FC = () => {
   return (
     <div className="app">
       <div>{count}</div>
-      <button onClick={() => setCount((v) => v + 1)}>Click Me</button>
-      <List list={list} />
-
+      <button onClick={handleClick}>Click Me</button>
+      <ul>
+        {list.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
       <input
         type="text"
         value={value}
@@ -43,4 +40,4 @@ const App: FC = () => {
   );
 };
 
-export default App;
+export default AppMonolit;
