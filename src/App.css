@@ -40,3 +40,22 @@ button:hover {
   background-color: #0b5ed7;
   border-color: #0a58ca;
 }
+
+
+.wrapper{
+  width: 300px;
+  padding: 10px;
+  background: beige;
+  border: solid 1px brown;
+}
+
+.wrapper button{
+  margin-left: 10px;
+}
+
+.counter{
+  padding: 10px;
+  margin: 10px;
+  background: burlywood;
+  border: solid 1px brown;
+}
